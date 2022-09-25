@@ -81,9 +81,7 @@ const Home: NextPage = () => {
             h={{ base: '300px', lg: '400px' }}
           >
             <Swiper
-              style={{
-                '--swiper-navigation-color': '#fff',
-              }}
+              className='--swiper-navigation-color'
               autoplay={{
                 delay: 2500,
                 disableOnInteraction: true,
@@ -92,7 +90,6 @@ const Home: NextPage = () => {
               effect={'fade'}
               navigation={true}
               modules={[Navigation, Lazy, Autoplay, EffectFade]}
-              className='mySwiper'
             >
               {images.map((item, index) => (
                 <SwiperSlide key={index}>
