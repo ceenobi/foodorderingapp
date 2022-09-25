@@ -20,7 +20,6 @@ import { toast } from 'react-hot-toast'
 
 import { loginSuccess, registerSuccess, loginFailure } from '../redux/userSlice'
 import registerOptions from '../utils/inputValidation'
-import { useToastHook } from '../hooks/useToast'
 
 type Data = {
   username: string
@@ -34,8 +33,6 @@ const Login = () => {
   const dispatch = useDispatch()
   const ID = useId()
   const router = useRouter()
-  // const [handleToast] = useToastHook()
-  const { redirect } = router.query
   const user = useSelector((state: any) => state.auth.user)
   const methods = useForm({
     defaultValues: {
@@ -77,7 +74,6 @@ const Login = () => {
         )
         dispatch(loginSuccess(data))
       }
-      router.push(redirect || '/')
     } catch (err) {
       dispatch(loginFailure(toast.error('Wrong credentials')))
     }
