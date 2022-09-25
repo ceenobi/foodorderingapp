@@ -29,7 +29,7 @@ export default function Sidebar({ showSide, setShowSide }: any) {
 
   const items = [
     { label: 'Pizza', href: 'pizza' },
-    { label: 'Menu', href: '/' },
+    { label: 'Menu', href: '#' },
   ]
 
   return (
@@ -43,10 +43,10 @@ export default function Sidebar({ showSide, setShowSide }: any) {
           px={4}
           h='full'
           bg='#000'
+          as={motion.div}
+          whileInView={{ opacity: [0, 1] }}
+          transition={{ duration: '0.1' }}
           zIndex={3}
-          // as={motion.div}
-          // whileInView={{ opacity: [0, 0] }}
-          // transition={{ duration: '0.1' }}
         >
           <Flex h='full' alignItems='center' direction='column' mt='4rem'>
             {user.username && (

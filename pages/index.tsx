@@ -48,7 +48,7 @@ const Home: NextPage = () => {
         <title>Munch</title>
         <meta name='description' content='Landpage view' />
       </Head>
-      <Box py={5}>
+      <Box py={5} pos='relative'>
         <Flex
           justify='space-between'
           mx='auto'

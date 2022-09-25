@@ -29,7 +29,7 @@ import { logoutSuccess } from '../../redux/userSlice'
 
 const items = [
   { label: 'Pizza', href: 'pizza' },
-  { label: 'Menu', href: '/' },
+  { label: 'Menu', href: '#' },
 ]
 
 export default function Navbar() {

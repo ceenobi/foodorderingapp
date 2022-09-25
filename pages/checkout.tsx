@@ -154,17 +154,11 @@ const Checkout = () => {
   }
   const initializePayment = usePaystackPayment(config)
 
-  const onSuccess = async (reference: referenceObj) => {
+  const onSuccess : any = async (reference: referenceObj) => {
     const res = await fetch(`/api/verify/${reference.reference}`)
     const verifyData = await res.json()
     if (verifyData.status === 'success') {
       setSuccess(true)
-      createOrder({
-        customer,
-        address,
-        total: getTotal().totalPrice,
-        method: 2,
-      })
     }
   }
 
@@ -185,8 +179,9 @@ const Checkout = () => {
       setIsSubmitting(false)
       toast.success('Payment successfull')
     } else {
-      initializePayment(onSuccess, onClose)
+      initializePayment(onSuccess)
     }
+     onClose()
   }
 
   const switchMode = () => {

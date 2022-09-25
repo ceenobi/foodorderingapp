@@ -14,7 +14,7 @@ export default function SlideBox({ category }: any) {
   }, [])
   return (
     <Box ml='20px' flex='0 0 auto' pos='relative' rounded='lg'>
-      <NextLink href={`/details/movie`} passHref>
+      <NextLink href='/' passHref>
         <Box
           width={{ base: '270px', md: '400px' }}
           height={{ base: '400px', lg: '600px' }}

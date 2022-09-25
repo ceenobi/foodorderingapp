@@ -33,18 +33,18 @@ export default function ProductModal(this: any) {
   const [files, setFiles] = useState<State>({
     src: '',
   })
-  const [title, setTitle] = useState(null)
-  const [desc, setDesc] = useState(null)
+  const [title, setTitle] = useState('')
+  const [desc, setDesc] = useState('')
   const [prices, setPrices] = useState<number[]>([])
   const [extraOptions, setExtraOptions] = useState([])
-  const [extra, setExtra] = useState(null)
+  const [extra, setExtra] = useState()
   const [category, setCategory] = useState('Starter')
   const [loading, setLoading] = useState(false)
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const cat = ['Starter', 'Deluxe', 'Premium']
 
-  const uploadFileHandler = (e) => {
+  const uploadFileHandler = (e: any) => {
     if (e.target.files && e.target.files.length > 0) {
       setFiles({ ...files, src: e.target.files[0] })
     }
@@ -79,14 +79,13 @@ export default function ProductModal(this: any) {
   }
 
   const handleExtraInput = (e: { target: { name: any; value: any } }) => {
-    setExtra({ ...extra, [e.target.name]: e.target.value })
+    setExtra({ ...(extra as any), [e.target.name]: e.target.value })
   }
 
   const handleExtra = async (e: any) => {
-    setExtraOptions((prev) => [...prev, extra])
+    setExtraOptions((prev) => [...prev, extra] as any)
   }
-  console.log('files', files)
-  console.log(category)
+
   const handleCreate = async (e: { preventDefault: () => void }) => {
     e.preventDefault()
     const formData = new FormData()

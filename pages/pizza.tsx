@@ -1,4 +1,3 @@
-import { useState, useEffect, useRef } from 'react'
 import { Box, Flex, Heading, Text, VStack } from '@chakra-ui/react'
 import Head from 'next/head'
 import axios from 'axios'
@@ -6,7 +5,6 @@ import axios from 'axios'
 import { Product } from '../types'
 import { NoResult, PizzaCard } from '../components'
 import useBreadcrumbs from '../hooks/useBreadCrumbs'
-import autoAnimate from '@formkit/auto-animate'
 
 interface IProps {
   pizzaList: Product[]
@@ -14,14 +12,6 @@ interface IProps {
 
 const Pizza = ({ pizzaList }: IProps) => {
   const [handleBreadCrumbs] = useBreadcrumbs()
-
-  const parentRef = useRef()
-
-  useEffect(() => {
-    if (parentRef.current) {
-      autoAnimate(parentRef.current)
-    }
-  }, [parentRef])
 
   return (
     <>
@@ -68,7 +58,7 @@ const Pizza = ({ pizzaList }: IProps) => {
               options too.
             </Text>
           </VStack>
-          <Box w='full' mx='auto' ref={parentRef}>
+          <Box w='full' mx='auto'>
             {pizzaList.length ? (
               pizzaList?.map((pizza: Product) => (
                 <PizzaCard item={pizza} key={pizza._id} />

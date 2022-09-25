@@ -40,7 +40,7 @@ export default function Cart({ showCart, setShowCart }: any) {
         top='0%'
         right={0}
         p={4}
-        bg='blackAlpha.900'
+        bg='#000'
         zIndex={15}
         as={motion.div}
         whileInView={{ opacity: [0, 1] }}
