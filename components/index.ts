@@ -1,0 +1,7 @@
+export {default as Layout} from './layout'
+export {default as SlideBox} from './slideBox'
+export {default as NoResult} from './noResult'
+export {default as PizzaCard} from './pizzaCard'
+export {default as Cart} from './cart'
+export {default as Total} from './total'
+export {default as ProductModal} from './productModal'
