@@ -1,17 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-type Quantity = {
-  quantity: number
-}
-
 const cartSlice = createSlice({
   name: 'cart',
   initialState: {
     cart: [],
   },
   reducers: {
-    addToCart: (state, action) => {
-      if (Number.isNaN(action.payload)) return
+    addToCart: (state: any, action) => {
       const itemInCart: any = state.cart.find(
         (item: any) => item.slug === action.payload.slug
       )
@@ -22,14 +17,12 @@ const cartSlice = createSlice({
       }
     },
     incrementQuantity: (state, action) => {
-      if (Number.isNaN(action.payload)) return
       const item: any = state.cart.find(
         (item: { id: any }) => item.id === action.payload.id
       )
       item.quantity++
     },
     decrementQuantity: (state, action) => {
-      if (Number.isNaN(action.payload)) return
       const item: any = state.cart.find(
         (item: { id: any }) => item.id === action.payload.id
       )
