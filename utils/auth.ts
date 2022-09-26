@@ -14,7 +14,7 @@ const authorize = async (req: { headers: { authorization: string }; user: any },
         const decoded = jwt.verify(token, process.env.JWT_SECRET as string)
         req.user = await User.findById(decoded.id).select('-password')
       } else {
-        decoded = jwt.decode(token)
+        const decoded = jwt.decode(token)
         req.user = decoded?.sub
       }
       next()
